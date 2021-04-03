@@ -3,167 +3,167 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/docs/example/</loc>
+    <loc>https://go.aabbccm.com/docs/example/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/example/table-of-contents/with-toc/</loc>
+    <loc>https://go.aabbccm.com/docs/example/table-of-contents/with-toc/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/example/table-of-contents/without-toc/</loc>
+    <loc>https://go.aabbccm.com/docs/example/table-of-contents/without-toc/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/posts/creating-a-new-theme/</loc>
+    <loc>https://go.aabbccm.com/posts/creating-a-new-theme/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/migrate-from-jekyll/</loc>
+    <loc>https://go.aabbccm.com/posts/migrate-from-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/docs/example/table-of-contents/</loc>
+    <loc>https://go.aabbccm.com/docs/example/table-of-contents/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/example/collapsed/</loc>
+    <loc>https://go.aabbccm.com/docs/example/collapsed/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/posts/</loc>
+    <loc>https://go.aabbccm.com/posts/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://go.aabbccm.com/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/goisforlovers/</loc>
+    <loc>https://go.aabbccm.com/posts/goisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://go.aabbccm.com/categories/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/development/</loc>
+    <loc>https://go.aabbccm.com/categories/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/development/</loc>
+    <loc>https://go.aabbccm.com/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/hugoisforlovers/</loc>
+    <loc>https://go.aabbccm.com/posts/hugoisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/go/</loc>
+    <loc>https://go.aabbccm.com/tags/go/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/golang/</loc>
+    <loc>https://go.aabbccm.com/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/golang/</loc>
+    <loc>https://go.aabbccm.com/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/hugo/</loc>
+    <loc>https://go.aabbccm.com/tags/hugo/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://go.aabbccm.com/tags/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/templates/</loc>
+    <loc>https://go.aabbccm.com/tags/templates/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/themes/</loc>
+    <loc>https://go.aabbccm.com/tags/themes/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/docs/example/collapsed/3rd-level/4th-level/</loc>
+    <loc>https://go.aabbccm.com/docs/example/collapsed/3rd-level/4th-level/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/example/collapsed/3rd-level/</loc>
+    <loc>https://go.aabbccm.com/docs/example/collapsed/3rd-level/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/example/hidden/</loc>
+    <loc>https://go.aabbccm.com/docs/example/hidden/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/buttons/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/buttons/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/columns/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/columns/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/details/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/details/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/expand/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/expand/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/hints/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/hints/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/katex/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/katex/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/mermaid/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/mermaid/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/section/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/section/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/section/page1/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/section/page1/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/section/page2/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/section/page2/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/shortcodes/tabs/</loc>
+    <loc>https://go.aabbccm.com/docs/shortcodes/tabs/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/docs/</loc>
+    <loc>https://go.aabbccm.com/docs/</loc>
   </url>
   
 </urlset>
