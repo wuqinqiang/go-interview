@@ -1,0 +1,4 @@
+baseURL = "http://example.org/"
+languageCode = "zh-cn"
+title = "Go面试题集锦"
+theme="book"
