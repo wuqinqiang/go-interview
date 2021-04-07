@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Example Site on Go面试题集锦</title>
+    <title>并发 on Go面试题集锦</title>
     <link>https://go.aabbccm.com/docs/example/</link>
-    <description>Recent content in Example Site on Go面试题集锦</description>
+    <description>Recent content in 并发 on Go面试题集锦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://go.aabbccm.com/docs/example/index.xml" rel="self" type="application/rss+xml" />
     <item>

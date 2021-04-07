@@ -3,11 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://go.aabbccm.com/docs/example/</loc>
+    <loc>https://go.aabbccm.com/docs/example/table-of-contents/channel/</loc>
   </url>
   
   <url>
-    <loc>https://go.aabbccm.com/docs/example/table-of-contents/with-toc/</loc>
+    <loc>https://go.aabbccm.com/docs/example/table-of-contents/g/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go.aabbccm.com/docs/example/concurrent/sync-once/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go.aabbccm.com/docs/example/</loc>
   </url>
   
   <url>
@@ -26,6 +34,10 @@
   
   <url>
     <loc>https://go.aabbccm.com/docs/example/table-of-contents/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go.aabbccm.com/docs/example/concurrent/</loc>
   </url>
   
   <url>
