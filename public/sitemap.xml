@@ -15,10 +15,6 @@
   </url>
   
   <url>
-    <loc>https://go.aabbccm.com/docs/example/</loc>
-  </url>
-  
-  <url>
     <loc>https://go.aabbccm.com/docs/example/table-of-contents/without-toc/</loc>
   </url>
   
@@ -42,6 +38,10 @@
   
   <url>
     <loc>https://go.aabbccm.com/docs/example/collapsed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://go.aabbccm.com/docs/example/</loc>
   </url>
   
   <url>
