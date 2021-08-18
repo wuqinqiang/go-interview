@@ -1,11 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>并发 on Go面试题集锦</title>
+    <title>开篇 on grpc-shop</title>
     <link>https://go.aabbccm.com/docs/example/</link>
-    <description>Recent content in 并发 on Go面试题集锦</description>
+    <description>Recent content in 开篇 on grpc-shop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language><atom:link href="https://go.aabbccm.com/docs/example/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微信</title>
+      <link>https://go.aabbccm.com/docs/example/wechat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go.aabbccm.com/docs/example/wechat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>项目介绍</title>
+      <link>https://go.aabbccm.com/docs/example/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go.aabbccm.com/docs/example/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/</guid>
+      <description>项目介绍 #  </description>
+    </item>
+    
+    <item>
+      <title>环境安装</title>
+      <link>https://go.aabbccm.com/docs/example/env/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go.aabbccm.com/docs/example/env/</guid>
+      <description>安装环境 #  </description>
+    </item>
+    
+    <item>
+      <title>初始化项目</title>
+      <link>https://go.aabbccm.com/docs/example/%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go.aabbccm.com/docs/example/%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE/</guid>
+      <description>初始化项目 #  </description>
+    </item>
+    
     <item>
       <title></title>
       <link>https://go.aabbccm.com/docs/example/hidden/</link>
@@ -14,6 +50,24 @@
       <guid>https://go.aabbccm.com/docs/example/hidden/</guid>
       <description>This page is hidden in menu #  Quondam non pater est dignior ille Eurotas #  Latent te facies #  Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus, frementes, qui in vel. Hippotades Peleus pennas conscia cuiquam Caeneus quas.
  Pater demittere evincitque reddunt Maxime adhuc pressit huc Danaas quid freta Soror ego Luctus linguam saxa ultroque prior Tatiumque inquit Saepe liquitur subita superata dederat Anius sudor  Cum honorum Latona #  O fallor in sustinui iussorum equidem.</description>
+    </item>
+    
+    <item>
+      <title>初识gRPC</title>
+      <link>https://go.aabbccm.com/docs/example/first/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://go.aabbccm.com/docs/example/first/</guid>
+      <description>在聊 gRPC 之前我们先来了解下什么是 rpc。
+什么是rpc? #  RPC 是 Remote Procedure Call 的简称，中文我们一般叫做远程过程调用。RPC 是一种服务器-客户端（Client/Server）模式，经典实现就是一个通过发送请求-接受回应进行信息交互的系统。
+RPC 的客户端和服务端可以在一台机器上，也可以在不同的机器上，对于开发者来说，调用 RPC 服务的时候，就跟调用本地函数一样。对于开发者来说。
+http 和 rpc 有什么区别？ #  首先这个问题本身不太严谨。
+ http 只是一个工作在应用层的传输协议。
+而 RPC 是一个完整的远程调用方案。
+它包含了:
+ 接口规范 数据序列化规范 传输协议  这样看，RPC 和 http 的关系只可能是包含关系。为什么是可能？因为 RPC 传输协议那块我可以不基于 http 呀。
+这个问题应该改成:基于 http 的远程调用方案 (如:http +RestFul(接口规范)+json(数据序列化规范)) 和直接使用 rpc 远程调用方案有什么区别？
+RPC 和 gRPC 有什么关系？ #  gRPC 是由 google 发起的一个 RPC 框架，基于 HTTP/2 协议传输。使用 Protocol Buffers 作为序列化协议。关于 Protocol Buffers 是一种与语言、平台无关 、可扩展的序列化结构数据格式。类似 JSON、XML等数据描述语言。更多关于 Protocol Buffers,我写了另一篇文章。</description>
     </item>
     
   </channel>

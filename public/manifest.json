@@ -1,6 +1,6 @@
 {
-  "name": "Go面试题集锦",
-  "short_name": "Go面试题集锦",
+  "name": "grpc-shop",
+  "short_name": "grpc-shop",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -1,4 +1,4 @@
 baseURL = "https://go.aabbccm.com/"
 languageCode = "zh-cn"
-title = "Go面试题集锦"
+title = "grpc-shop"
 theme="book"
