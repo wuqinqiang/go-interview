@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.77.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="开发环境 #  Go环境 #  首先是 Go ，直接安装最新的版本就好。这个很简单，官网地址:go安装。
+Protocol buffer #  protocol buffer ，简称 protobuf。是一种与语言、平台无关 、可扩展的序列化结构数据格式。官方有一句话:
+Protocol buffers are Google&rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler.  所以它的定位类似于 xml 、json，但是从性能上和效率上大幅度优于 xml、json。
+但是它也有个缺点，可读性差，毕竟是以二进制方式存储的。
+下载安装 protocol buffer 项目地址。
+如果是 linux 使用 apt 或者 apt-get
+apt install -y protobuf-compiler protoc --version # 确认版本为 3&#43; 如果是 Mac,使用 Homebrew,
+brew install protobuf protoc --version # 确认版本为 3&#43; 官方建议使用 proto3 教程中使用的 proto3 ，如果想了解 proto3 相比 proto2 的改变可以查看这里[Protocol Buffers v3.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="环境安装" />
+<meta property="og:description" content="开发环境 #  Go环境 #  首先是 Go ，直接安装最新的版本就好。这个很简单，官网地址:go安装。
+Protocol buffer #  protocol buffer ，简称 protobuf。是一种与语言、平台无关 、可扩展的序列化结构数据格式。官方有一句话:
+Protocol buffers are Google&rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler.  所以它的定位类似于 xml 、json，但是从性能上和效率上大幅度优于 xml、json。
+但是它也有个缺点，可读性差，毕竟是以二进制方式存储的。
+下载安装 protocol buffer 项目地址。
+如果是 linux 使用 apt 或者 apt-get
+apt install -y protobuf-compiler protoc --version # 确认版本为 3&#43; 如果是 Mac,使用 Homebrew,
+brew install protobuf protoc --version # 确认版本为 3&#43; 官方建议使用 proto3 教程中使用的 proto3 ，如果想了解 proto3 相比 proto2 的改变可以查看这里[Protocol Buffers v3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://go.aabbccm.com/docs/main/env/" />
+
+<title>环境安装 | grpc-shop</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
+<script defer src="/en.search.min.2fe3f444284c423d56784bf1672eade5c5ab9feb304f66f0f7b8c9a82091a827.js" integrity="sha256-L&#43;P0RChMQj1WeEvxZy6t5cWrn&#43;swT2bw97jJqCCRqCc="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>grpc-shop</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/" class="">开篇</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/wechat/" class="">微信</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/env/" class=" active">环境安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/grpc/" class="">初识gRPC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/protobuf/" class="">初识 protobuf</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE/" class="">初始化项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>product-srv</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/pb%E6%96%87%E4%BB%B6/" class="">pb文件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="">客户端</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E6%9C%8D%E5%8A%A1%E7%AB%AF/" class="">服务端</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="">中间件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/" class="">数据验证</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/tls%E8%AE%A4%E8%AF%81/" class="">tls认证</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E8%B6%85%E6%97%B6%E6%8E%A7%E5%88%B6/" class="">超时控制</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/" class="">服务发现</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E5%85%A8%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/" class="">全链路追踪</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="">负载均衡</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>order-srv</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/order-srv/pb%E6%96%87%E4%BB%B6/" class="">pb文件</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>user-srv</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/user-srv/pb%E6%96%87%E4%BB%B6/" class="">pb文件</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>环境安装</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="开发环境">
+  开发环境
+  <a class="anchor" href="#%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83">#</a>
+</h1>
+<h4 id="go环境">
+  Go环境
+  <a class="anchor" href="#go%e7%8e%af%e5%a2%83">#</a>
+</h4>
+<p>首先是 <code>Go</code> ，直接安装最新的版本就好。这个很简单，官网地址:<a href="https://golang.org/doc/install">go安装</a>。</p>
+<h4 id="protocol-buffer">
+  Protocol buffer
+  <a class="anchor" href="#protocol-buffer">#</a>
+</h4>
+<p><code>protocol buffer</code> ，简称 <code>protobuf</code>。是一种与语言、平台无关 、可扩展的序列化结构数据格式。官方有一句话:</p>
+<blockquote class="book-hint info">
+  Protocol buffers are Google&rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler.
+</blockquote>
+
+<p>所以它的定位类似于 <code>xml</code> 、<code>json</code>，但是从性能上和效率上大幅度优于 <code>xml</code>、<code>json</code>。</p>
+<p>但是它也有个缺点，可读性差，毕竟是以二进制方式存储的。</p>
+<p>下载安装 <code>protocol buffer</code>  <a href="https://github.com/protocolbuffers/protobuf">项目地址</a>。</p>
+<p>如果是 <code>linux</code> 使用 <code>apt</code> 或者 <code>apt-get</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt install -y protobuf-compiler
+protoc --version  <span style="color:#75715e"># 确认版本为 3+</span>
+</code></pre></div><p>如果是 <code>Mac</code>,使用 <code>Homebrew</code>,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install protobuf
+protoc --version <span style="color:#75715e"># 确认版本为 3+</span>
+</code></pre></div><p>官方建议使用 <code>proto3</code> 教程中使用的 <code>proto3</code> ，如果想了解  <code>proto3</code> 相比 <code>proto2</code> 的改变可以查看这里[<a href="https://github.com/protocolbuffers/protobuf/releases/tag/v3.0.0">Protocol Buffers v3.0.0</a>](<a href="https://github.com/protocolbuffers/protobuf/releases/tag/v3.0.0">https://github.com/protocolbuffers/protobuf/releases/tag/v3.0.0</a>)。</p>
+<h4 id="go-plugins">
+  Go plugins
+  <a class="anchor" href="#go-plugins">#</a>
+</h4>
+<p><code>protobuf</code> 核心的工具是 <code>C++</code> 开发的。在官方的编译器中并不支持 <code>Go</code> 语言(好奇的是为啥其他主语言都支持，是个谜)。</p>
+<p>所以，如果我们想要在<code> Go</code> 中使用 <code>protobuf</code> ，还需要安装能支持在 <code>Go</code> 中 编译 <code>protobuf</code> 插件，这样我们就可以把 <code>.proto</code> 文件生成对应的 <code>Go</code> 代码了。</p>
+<p>执行以下命令安装插件最新版本：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go get -u github.com/golang/protobuf/protoc-gen-go
+</code></pre></div><p>当然你也可以指定版本号。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go get google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
+</code></pre></div><p>当然了项目中使用的 <code>grpc</code>,我们需要安装对应 <code>protobuf</code> 编译生成 <code>grpc</code> 代码 的插件。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1 
+</code></pre></div><p>如果有需要，更新一下 <code>PATH</code>，让 <code>protoc</code> 命令找到插件。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PATH<span style="color:#e6db74">:</span><span style="color:#66d9ef">$(</span>go env GOPATH<span style="color:#66d9ef">)</span><span style="color:#e6db74">/bin&#34;</span>
+</code></pre></div><p>顺便提一嘴，可以看到这里我使用了 <code>go install</code>，那么 <code>go get</code> 和 <code>go install</code> 有什么区别?</p>
+<blockquote class="book-hint info">
+  go install=go build +把 go build 编译后生成的可执行文件放到 GOPATH/bin 目录下。
+</blockquote>
+
+<blockquote class="book-hint warning">
+  go get = git clone + go install。
+</blockquote>
+
+<p>很清晰了吧。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
