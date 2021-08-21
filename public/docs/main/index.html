@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.77.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="开篇 #  为什么会有这个项目? #  此项目的初衷是为了帮助 Go 开发人员快速上手 gRPC 项目。  算是作者学习中对一些知识点的一些总结  网上的一些教程大多到 hello world 为止，体现不出一个正常业务开发会涉及到的方方面面。  综上所术，才有了此项目。
+当然了，还有很重要的一个原因：写文档的能力。
+日常对接文档或者使用工具的时候，一定吐槽过别人的文档写的是什么。
+我关注的是 what、how，你却一个劲的 much niubi。
+虽然会吐槽他人，但是自己写文档的时候，也照样草草了事，过于真实。
+记忆中，文档似乎和一次性口罩是一个性质的物品。前者用过就丢，后者写过就封版了。
+你会不会有这样的时刻？
+在和别人讲解自己某个项目、模块、功能的时候。你滔滔不绝，可对方依然云里雾里。就像这样：
+归根结底，我觉得有四个原因（暂且不讨论听者方面的）:
+ 自身对自己做的东西没有深入去了解。遵循代码和我，有一个能跑的原则。 对细节了如指掌，但是表达能力出现问题。 没有站在读者的角度，你所谓的前置知识、技能、专业名词&hellip;&hellip;，对方完全不知，本质上还是信息差。 内心深处不想让别人了解这个系统，毕竟你想当唯一的消防员👩‍🚒。  能把自己写过的东西、看过的项目&hellip;&hellip;，通过文字、嘴对嘴、视频等方式完整清晰的表达出来是一件非常重要且值得开干的事。
+如果连文档都写不清楚，还指望自己能写好 ppt？">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="开篇" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://go.aabbccm.com/docs/main/" />
+
+<title>开篇 | grpc-shop</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
+<script defer src="/en.search.min.2fe3f444284c423d56784bf1672eade5c5ab9feb304f66f0f7b8c9a82091a827.js" integrity="sha256-L&#43;P0RChMQj1WeEvxZy6t5cWrn&#43;swT2bw97jJqCCRqCc="></script>
+<link rel="alternate" type="application/rss+xml" href="https://go.aabbccm.com/docs/main/index.xml" title="grpc-shop" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>grpc-shop</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/" class=" active">开篇</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/wechat/" class="">微信</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/env/" class="">环境安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/grpc/" class="">初识gRPC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/protobuf/" class="">初识 protobuf</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/main/%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE/" class="">初始化项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>product-srv</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/pb%E6%96%87%E4%BB%B6/" class="">pb文件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="">客户端</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E6%9C%8D%E5%8A%A1%E7%AB%AF/" class="">服务端</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="">中间件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/" class="">数据验证</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/tls%E8%AE%A4%E8%AF%81/" class="">tls认证</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E8%B6%85%E6%97%B6%E6%8E%A7%E5%88%B6/" class="">超时控制</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/" class="">服务发现</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E5%85%A8%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/" class="">全链路追踪</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/product-srv/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="">负载均衡</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>order-srv</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/order-srv/pb%E6%96%87%E4%BB%B6/" class="">pb文件</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>user-srv</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://go.aabbccm.com/docs/user-srv/pb%E6%96%87%E4%BB%B6/" class="">pb文件</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>开篇</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#为什么会有这个项目"><strong>为什么会有这个项目?</strong></a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="开篇">
+  开篇
+  <a class="anchor" href="#%e5%bc%80%e7%af%87">#</a>
+</h1>
+<h2 id="为什么会有这个项目">
+  <strong>为什么会有这个项目?</strong>
+  <a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bc%9a%e6%9c%89%e8%bf%99%e4%b8%aa%e9%a1%b9%e7%9b%ae">#</a>
+</h2>
+<blockquote class="book-hint info">
+  此项目的初衷是为了帮助 <code>Go</code> 开发人员快速上手 <code>gRPC</code> 项目。
+</blockquote>
+
+<blockquote class="book-hint info">
+  算是作者学习中对一些知识点的一些总结
+</blockquote>
+
+<blockquote class="book-hint info">
+  网上的一些教程大多到 hello world 为止，体现不出一个正常业务开发会涉及到的方方面面。
+</blockquote>
+
+<p>综上所术，才有了此项目。</p>
+<p>当然了，还有很重要的一个原因：写文档的能力。</p>
+<p>日常对接文档或者使用工具的时候，一定吐槽过别人的文档写的是什么。</p>
+<p><img src="https://cdn.syst.top/what.jpeg" alt="" /></p>
+<p>我关注的是 <code>what</code>、<code>how</code>，你却一个劲的 <code>much niubi</code>。</p>
+<p>虽然会吐槽他人，但是自己写文档的时候，也照样草草了事，过于真实。</p>
+<p>记忆中，文档似乎和一次性口罩是一个性质的物品。前者用过就丢，后者写过就封版了。</p>
+<p>你会不会有这样的时刻？</p>
+<p>在和别人讲解自己某个项目、模块、功能的时候。你滔滔不绝，可对方依然云里雾里。就像这样：</p>
+<p><img src="https://cdn.syst.top/quesion.jpeg" alt="" /></p>
+<p>归根结底，我觉得有四个原因（暂且不讨论听者方面的）:</p>
+<ul>
+<li>自身对自己做的东西没有深入去了解。遵循代码和我，有一个能跑的原则。</li>
+<li>对细节了如指掌，但是表达能力出现问题。</li>
+<li>没有站在读者的角度，你所谓的前置知识、技能、专业名词&hellip;&hellip;，对方完全不知，本质上还是信息差。</li>
+<li>内心深处不想让别人了解这个系统，毕竟你想当唯一的消防员👩‍🚒。</li>
+</ul>
+<p>能把自己写过的东西、看过的项目&hellip;&hellip;，通过文字、嘴对嘴、视频等方式完整清晰的表达出来是一件非常重要且值得开干的事。</p>
+<p>如果连文档都写不清楚，还指望自己能写好 <code>ppt</code>？</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#为什么会有这个项目"><strong>为什么会有这个项目?</strong></a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

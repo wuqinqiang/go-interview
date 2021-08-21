@@ -5,61 +5,6 @@
     <link>https://go.aabbccm.com/tags/</link>
     <description>Recent content in Tags on grpc-shop</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://go.aabbccm.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>development</title>
-      <link>https://go.aabbccm.com/tags/development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://go.aabbccm.com/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://go.aabbccm.com/tags/go/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://go.aabbccm.com/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://go.aabbccm.com/tags/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://go.aabbccm.com/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://go.aabbccm.com/tags/hugo/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://go.aabbccm.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>templates</title>
-      <link>https://go.aabbccm.com/tags/templates/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://go.aabbccm.com/tags/templates/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>themes</title>
-      <link>https://go.aabbccm.com/tags/themes/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://go.aabbccm.com/tags/themes/</guid>
-      <description></description>
-    </item>
-    
+    <language>zh-cn</language><atom:link href="https://go.aabbccm.com/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
