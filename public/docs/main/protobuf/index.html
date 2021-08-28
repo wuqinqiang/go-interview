@@ -5,9 +5,13 @@
   <meta name="generator" content="Hugo 0.77.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="初始gRPC #  ">
+<meta name="description" content="初始protobuf #  Protobuf 是什么 #  protobuf全称是protocal buffers ，平时我们都会简称为pb，下文就使用pb来介绍了。
+官网中对pb的完整定义如下:
+ Protocol buffers are Google&rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="初识 protobuf" />
-<meta property="og:description" content="初始gRPC #  " />
+<meta property="og:description" content="初始protobuf #  Protobuf 是什么 #  protobuf全称是protocal buffers ，平时我们都会简称为pb，下文就使用pb来介绍了。
+官网中对pb的完整定义如下:
+ Protocol buffers are Google&rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://go.aabbccm.com/docs/main/protobuf/" />
 
@@ -15,7 +19,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
-<script defer src="/en.search.min.6ed2efc578a2011e55fcdf342344606aac8ec6b88034f2757c83badfa26d26f5.js" integrity="sha256-btLvxXiiAR5V/N80I0RgaqyOxriANPJ1fIO636JtJvU="></script>
+<script defer src="/en.search.min.997125b3b1c01b065ece8bce6a319491a9050c8382f61caaed8d3c35536b80f4.js" integrity="sha256-mXEls7HAGwZezovOajGUkakFDIOC9hyq7Y08NVNrgPQ="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -404,7 +408,19 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#protobuf-是什么">Protobuf 是什么</a></li>
+        <li><a href="#环境">环境</a></li>
+        <li><a href="#如何使用">如何使用</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -415,10 +431,260 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="初始grpc">
-  初始gRPC
-  <a class="anchor" href="#%e5%88%9d%e5%a7%8bgrpc">#</a>
+  <article class="markdown"><h1 id="初始protobuf">
+  初始protobuf
+  <a class="anchor" href="#%e5%88%9d%e5%a7%8bprotobuf">#</a>
 </h1>
+<h3 id="protobuf-是什么">
+  Protobuf 是什么
+  <a class="anchor" href="#protobuf-%e6%98%af%e4%bb%80%e4%b9%88">#</a>
+</h3>
+<p><code>protobuf</code>全称是<code>protocal buffers</code> ，平时我们都会简称为<code>pb</code>，下文就使用<code>pb</code>来介绍了。</p>
+<p>官网中对pb的完整定义如下:</p>
+<blockquote>
+<p>Protocol buffers are Google&rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.</p>
+</blockquote>
+<p>简单的说， <code>pb</code>是一种与语言、平台无关，可扩展的序列化数据格式。它的定位类似于<code>JSON</code>、<code>XML</code>，但是比他们更小、更快、更简单。</p>
+<p>对于开发者来说，我们只需要定义<code>proto</code>文件。然后使用对应的<code>IDL</code>编译器把<code>.proto文件</code>编译成对应语言的代码即可。</p>
+<p>从某个角度来看，<code>.proto</code>文件就是接口。里面包含了接口方法、入参、出参。</p>
+<h3 id="环境">
+  环境
+  <a class="anchor" href="#%e7%8e%af%e5%a2%83">#</a>
+</h3>
+<h4 id="pb">
+  pb
+  <a class="anchor" href="#pb">#</a>
+</h4>
+<p>下载安装<code>pb</code>  <a href="https://github.com/protocolbuffers/protobuf">项目地址</a>。</p>
+<p>如果是<code>linux</code>使用<code>apt</code>或者<code>apt-get</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt install -y protobuf-compiler
+protoc --version  <span style="color:#75715e"># 确认版本为 3+</span>
+</code></pre></div><p>如果是Mac<code>,使用</code>Homebrew`,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install protobuf
+protoc --version <span style="color:#75715e"># 确认版本为 3+</span>
+</code></pre></div><p>官方建议使用<code>proto3</code>教程中使用的<code>proto3</code> ，如果想了解 <code>proto3</code>相比<code>proto2</code>的改变可以查看这里[<a href="https://github.com/protocolbuffers/protobuf/releases/tag/v3.0.0">Protocol Buffers v3.0.0</a>](<a href="https://github.com/protocolbuffers/protobuf/releases/tag/v3.0.0">https://github.com/protocolbuffers/protobuf/releases/tag/v3.0.0</a>)。</p>
+<h4 id="go-plugins">
+  Go plugins
+  <a class="anchor" href="#go-plugins">#</a>
+</h4>
+<p><code>protobuf</code>核心的工具是<code>C++</code>开发的。在官方的编译器中并不支持<code>Go</code>语言(好奇的是为啥其他主语言都支持，是个谜)。</p>
+<p>所以，如果我们想要在<code> Go</code>中使用<code>protobuf</code> ，还需要安装能支持在<code>Go</code>中编译<code>protobuf</code>插件，这样我们就可以 <code>.proto</code>文件生成对应的<code>Go</code>代码了。</p>
+<p>执行以下命令安装插件最新版本：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go get -u github.com/golang/protobuf/protoc-gen-go
+</code></pre></div><p>你也可以指定版本号。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go get google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
+</code></pre></div><p>当然了项目中使用的 <code>grpc</code>,我们需要安装对应 <code>protobuf</code>编译生成<code>grpc</code>代码的插件。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1 
+</code></pre></div><p>如果有需要，更新一下<code>PATH</code>，让<code>protoc</code>命令找到插件。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PATH<span style="color:#e6db74">:</span><span style="color:#66d9ef">$(</span>go env GOPATH<span style="color:#66d9ef">)</span><span style="color:#e6db74">/bin&#34;</span>
+</code></pre></div><p>顺便提一嘴，可以看到这里我使用了<code>go install</code>，那么<code>go get</code>和<code>go install</code>有什么区别?</p>
+<blockquote class="book-hint info">
+  go install=go build +把 go build 编译后生成的可执行文件放到 GOPATH/bin 目录下。
+</blockquote>
+
+<blockquote class="book-hint warning">
+  go get = git clone + go install。
+</blockquote>
+
+<h3 id="如何使用">
+  如何使用
+  <a class="anchor" href="#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8">#</a>
+</h3>
+<p>我们先来看一个简单的示例，我们创建一个<code>order.proto</code>文件，内容如下:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">syntax</span> = <span style="color:#e6db74">&#34;proto3&#34;</span>;
+
+<span style="color:#a6e22e">option</span> <span style="color:#a6e22e">go_package</span> = <span style="color:#e6db74">&#34;.;order&#34;</span>;
+
+<span style="color:#a6e22e">message</span> <span style="color:#a6e22e">Order</span> {
+  <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">order_id</span> = <span style="color:#ae81ff">1</span>;
+  <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">user_id</span> = <span style="color:#ae81ff">2</span>;
+  <span style="color:#66d9ef">uint32</span> <span style="color:#a6e22e">order_amount</span> = <span style="color:#ae81ff">3</span>;
+  <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">is_cancel</span> = <span style="color:#ae81ff">4</span>;
+}
+</code></pre></div><p>逐行解释。</p>
+<p><code>pb</code>有两个版本，默认版本是<code>proto2</code>，如果要使用<code>proto3</code>，我们就得在<strong>非空非注释</strong>的第一行代码中使用<code>syntax = &quot;proto3&quot;;</code> 声明版本。</p>
+<p><code>option</code>表示可选项配置。有些选项是文件级别的，需要在一个文件的顶级作用域定义，比如上面的<code>option go_package = &quot;order&quot;;</code>。</p>
+<p><code>go_package</code>选项，定义的值，就是把<code>pb</code>文件编译生成<code>Go</code>代码后文件的<code>package</code>名。这样其他生成的<code>Go</code>代码就可以通过关键字<code>import</code>使用到这个包。</p>
+<p>你可能还会在<code>.proto</code>文件中看到类似 <code>package xxx</code>这样的， 比如，</p>
+<pre><code>syntax = &quot;proto3&quot;;
+package order;
+option go_package = &quot;.;order&quot;;
+</code></pre><p><code>package</code>主要用来解决不同的<code>pb</code>文件存在相同消息类型名称之间的冲突。比如<code>a.proto</code>有一个<code>Common message</code>，<code>b.proto</code> 也有一个 <code>Common message</code>，此时需要通过<code>package</code>来做区分。</p>
+<p>那<code>package</code>和<code>go_package</code> 有什么关系吗？</p>
+<blockquote>
+<p>There is no correlation between the Go import path and the <a href="https://developers.google.com/protocol-buffers/docs/proto3#packages"><code>package</code> specifier</a> in the <code>.proto</code> file. The latter is only relevant to the protobuf namespace, while the former is only relevant to the Go namespace. Also, there is no correlation between the Go import path and the <code>.proto</code> import path.</p>
+</blockquote>
+<p><strong>没有关系</strong>。</p>
+<p><code>package</code>只和<code>pb</code>空间有关，而 <code>go_package</code> 前面解释过了，和<code>Go</code>的<code>import</code>包有关，他们两者，本质上不是一个层面的。</p>
+<p>接着我们定义了一个<code>Order</code>的消息<code>message</code>类型，定义消息类型是使用关键字<code>message</code> 定义的。</p>
+<p><code>Order</code>定义了四个字段，对应<code>string</code>、<code>uint32</code>以及<code>bool</code>字段类型。</p>
+<p>消息类型中字段定义的格式为，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf">[ <span style="color:#e6db74">&#34;singular|repeated｜......&#34;</span> ] type fieldName <span style="color:#e6db74">&#34;=&#34;</span> fieldNumber [ <span style="color:#e6db74">&#34;[&#34;</span> fieldOptions <span style="color:#e6db74">&#34;]&#34;</span> ] <span style="color:#e6db74">&#34;;&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>默认情况下，每个字段最前面的修饰符为<code>singular</code>，一般省略不写。</p>
+<p>假设一个主订单下有多个子订单，我们可以如何定义？</p>
+<pre><code>syntax = &quot;proto3&quot;;
+
+option go_package = &quot;.;order&quot;;
+
+message Order {
+  string order_id = 1;
+  string user_id = 2;
+  uint32 order_amount = 3;
+  bool is_cancel = 4;
+  repeated OrderItem items = 5;
+}
+
+message OrderItem {
+  string title = 1;
+  string image = 2;
+}
+</code></pre><p>我们新定义了一个<code>OrderItem</code>子订单的消息类型。然后在<code>Order</code>中，我们使用了<code>OrderItem</code>作为<code>items</code>字段的类型值。</p>
+<p><code>repeated</code>是另一种修饰符，表示允许字段重复。上面的场景即一个订单有多个子订单的概念。</p>
+<p>编译成<code>Go</code>代码，<code>items</code>会变成<code>slice</code>类型。</p>
+<p>其他类型就不一一介绍，更多的类型可以查看这：<a href="https://developers.google.com/protocol-buffers/docs/proto3?hl=en#simple">message type</a></p>
+<p>接着我们通过命令编译(确保工具已装)生成Go相关的代码，执行如下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">protoc --proto_path<span style="color:#f92672">=</span>. --go_out<span style="color:#f92672">=</span>. *.proto
+</code></pre></div><p><code>--proto_path</code>指定要编译的源码的搜索路径，上面的<code>.</code>表示当前目录。如果不指定<code>--proto_path</code>的话,默认为<code>pwd</code>。所以上面我们也可以省略成这样，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">protoc --go_out<span style="color:#f92672">=</span>. *.proto
+</code></pre></div><p><code>--go_out</code> 参数告知<code>protoc</code>编译器去加载对应的<code>protoc-gen-go</code>工具且指定编译生成<code>Go</code>代码后保存位置。当然如果是生成<code>php</code>代码那就是<code>--php_out</code>。对应的语言，对应<code>--xx_out</code>。</p>
+<p>最后的<code>*.proto</code>表示搜索当前目录下所有<code>.proto</code>文件。</p>
+<p>那么整句命令行意思就是：编译当前目录下所有<code>.proto</code>文件， 把生成的<code>Go</code>代码存放到当前目录。</p>
+<p>上面的命令执行后，当前目录下多了一个<code>order.pb.go</code>文件。生成的数据结构:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">
+<span style="color:#75715e">// 主订单
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Order</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">state</span>         <span style="color:#a6e22e">protoimpl</span>.<span style="color:#a6e22e">MessageState</span>
+	<span style="color:#a6e22e">sizeCache</span>     <span style="color:#a6e22e">protoimpl</span>.<span style="color:#a6e22e">SizeCache</span>
+	<span style="color:#a6e22e">unknownFields</span> <span style="color:#a6e22e">protoimpl</span>.<span style="color:#a6e22e">UnknownFields</span>
+
+	<span style="color:#a6e22e">OrderId</span>     <span style="color:#66d9ef">string</span>       <span style="color:#e6db74">`protobuf:&#34;bytes,1,opt,name=order_id,json=orderId,proto3&#34; json:&#34;order_id,omitempty&#34;`</span>
+	<span style="color:#a6e22e">UserId</span>      <span style="color:#66d9ef">string</span>       <span style="color:#e6db74">`protobuf:&#34;bytes,2,opt,name=user_id,json=userId,proto3&#34; json:&#34;user_id,omitempty&#34;`</span>
+	<span style="color:#a6e22e">OrderAmount</span> <span style="color:#66d9ef">uint32</span>       <span style="color:#e6db74">`protobuf:&#34;varint,4,opt,name=order_amount,json=orderAmount,proto3&#34; json:&#34;order_amount,omitempty&#34;`</span>
+	<span style="color:#a6e22e">IsCancel</span>    <span style="color:#66d9ef">bool</span>         <span style="color:#e6db74">`protobuf:&#34;varint,5,opt,name=is_cancel,json=isCancel,proto3&#34; json:&#34;is_cancel,omitempty&#34;`</span>
+	<span style="color:#a6e22e">Items</span>       []<span style="color:#f92672">*</span><span style="color:#a6e22e">OrderItem</span> <span style="color:#e6db74">`protobuf:&#34;bytes,6,rep,name=items,proto3&#34; json:&#34;items,omitempty&#34;`</span>
+}
+
+<span style="color:#f92672">......</span>..
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Order</span>) <span style="color:#a6e22e">GetOrderId</span>() <span style="color:#66d9ef">string</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">OrderId</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Order</span>) <span style="color:#a6e22e">GetUserId</span>() <span style="color:#66d9ef">string</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">UserId</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Order</span>) <span style="color:#a6e22e">GetOrderAmount</span>() <span style="color:#66d9ef">uint32</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">OrderAmount</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+}
+<span style="color:#f92672">......</span>
+
+<span style="color:#75715e">// 子订单
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">OrderItem</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">state</span>         <span style="color:#a6e22e">protoimpl</span>.<span style="color:#a6e22e">MessageState</span>
+	<span style="color:#a6e22e">sizeCache</span>     <span style="color:#a6e22e">protoimpl</span>.<span style="color:#a6e22e">SizeCache</span>
+	<span style="color:#a6e22e">unknownFields</span> <span style="color:#a6e22e">protoimpl</span>.<span style="color:#a6e22e">UnknownFields</span>
+
+	<span style="color:#a6e22e">Title</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`protobuf:&#34;bytes,1,opt,name=title,proto3&#34; json:&#34;title,omitempty&#34;`</span>
+	<span style="color:#a6e22e">Image</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`protobuf:&#34;bytes,2,opt,name=image,proto3&#34; json:&#34;image,omitempty&#34;`</span>
+}
+<span style="color:#f92672">......</span>
+</code></pre></div><p>可以看到生成的主订单结构中，<code>Items</code> 是一个切片类型。同时生成的还有一些<code>Getxxx</code>方法，方便读取字段值。</p>
+<p>等等，接口呢？</p>
+<p><code>message</code> 有了，现在我们可以在<code>.proto</code>文件定义<code>RPC</code>服务接口了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">syntax</span> = <span style="color:#e6db74">&#34;proto3&#34;</span>;
+
+<span style="color:#a6e22e">option</span> <span style="color:#a6e22e">go_package</span> = <span style="color:#e6db74">&#34;.;order&#34;</span>;
+
+<span style="color:#a6e22e">service</span> <span style="color:#a6e22e">OrderService</span> {
+  <span style="color:#a6e22e">rpc</span> <span style="color:#a6e22e">GetOrderList</span> (<span style="color:#a6e22e">OrderListReq</span>) <span style="color:#a6e22e">returns</span> (<span style="color:#a6e22e">OrderListResp</span>) {}
+}
+
+<span style="color:#a6e22e">message</span> <span style="color:#a6e22e">OrderListReq</span> {
+  <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">user_id</span> = <span style="color:#ae81ff">1</span>;
+}
+
+<span style="color:#a6e22e">message</span> <span style="color:#a6e22e">OrderListResp</span> {
+  <span style="color:#a6e22e">repeated</span> <span style="color:#a6e22e">Order</span> <span style="color:#a6e22e">list</span> = <span style="color:#ae81ff">1</span>;
+}
+
+<span style="color:#a6e22e">message</span> <span style="color:#a6e22e">Order</span> {
+  <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">order_id</span> = <span style="color:#ae81ff">1</span>;
+  <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">user_id</span> = <span style="color:#ae81ff">2</span>;
+  <span style="color:#66d9ef">uint32</span> <span style="color:#a6e22e">order_amount</span> = <span style="color:#ae81ff">3</span>;
+  <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">is_cancel</span> = <span style="color:#ae81ff">4</span>;
+  <span style="color:#a6e22e">repeated</span> <span style="color:#a6e22e">OrderItem</span> <span style="color:#a6e22e">items</span> = <span style="color:#ae81ff">5</span>;
+}
+
+<span style="color:#a6e22e">message</span> <span style="color:#a6e22e">OrderItem</span> {
+  <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">title</span> = <span style="color:#ae81ff">1</span>;
+  <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">image</span> = <span style="color:#ae81ff">2</span>;
+}
+</code></pre></div><p>我们定义了一个 <code>OrderService</code> 的服务，提供了一个<code>GetOrderList</code>的接口，它的入参是<code>OrderListReq</code>，返回类型是<code>OrderListResp</code>，是不是很像我们平常定义的函数。</p>
+<p>和平常自定义函数的不同在于，可以自定义无入参出参的函数，而在<code>pb</code>中接口必须携带参数，否则编译的时候会报，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Expected</span> <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">name</span>
+</code></pre></div><p>针对不需要参数的情况，我们一般会定义一个空<code>message</code>类型或者传入<code>google.protobuf.Empty</code>，传入<code>google.protobuf.Empty</code> 不好点在于不易扩展，万一这个接口要参数了呢。</p>
+<p><code>service</code>定义完毕，再次执行上述命令，你会发现，重新生成的<code>order.pb.go</code>文件并没有变化。这是因为<code>RPC</code>框架很多，<code>protoc</code>编译器并不知道给我们生成哪个<code>RPC</code>框架的代码。</p>
+<p><code>protoc-gen-go</code>内部已经集成了一个名为<code>gRPC</code>的插件，所以我们可以通过命令行参数<code>--go-grpc_out</code>生成<code>gRPC</code>代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">protoc --go_out<span style="color:#f92672">=</span>.  --go-grpc_out<span style="color:#f92672">=</span>. *.proto
+</code></pre></div><p>然后你就发现这个错误，</p>
+<p><img src="https://cdn.syst.top/2021-08-28.png" alt="" /></p>
+<p>我们需要改动 <code>option go_package = &quot;.;order&quot;</code> 为 <code>option go_package = &quot;./;order&quot;</code>。</p>
+<p>再次执行，多出了一个<code>order_grpc.pb.go</code>文件。里面就能看到<code>grpc</code>客户端和服务端的<code>api</code>服务。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// OrderServiceClient is the client API for OrderService service.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">OrderServiceClient</span> <span style="color:#66d9ef">interface</span> {
+	<span style="color:#a6e22e">GetOrderList</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">in</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">OrderListReq</span>, <span style="color:#a6e22e">opts</span> <span style="color:#f92672">...</span><span style="color:#a6e22e">grpc</span>.<span style="color:#a6e22e">CallOption</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">OrderListResp</span>, <span style="color:#66d9ef">error</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewOrderServiceClient</span>(<span style="color:#a6e22e">cc</span> <span style="color:#a6e22e">grpc</span>.<span style="color:#a6e22e">ClientConnInterface</span>) <span style="color:#a6e22e">OrderServiceClient</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">orderServiceClient</span>{<span style="color:#a6e22e">cc</span>}
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">orderServiceClient</span>) <span style="color:#a6e22e">GetOrderList</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">in</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">OrderListReq</span>, <span style="color:#a6e22e">opts</span> <span style="color:#f92672">...</span><span style="color:#a6e22e">grpc</span>.<span style="color:#a6e22e">CallOption</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">OrderListResp</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#a6e22e">out</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">OrderListResp</span>)
+	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">cc</span>.<span style="color:#a6e22e">Invoke</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;/OrderService/GetOrderList&#34;</span>, <span style="color:#a6e22e">in</span>, <span style="color:#a6e22e">out</span>, <span style="color:#a6e22e">opts</span><span style="color:#f92672">...</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">out</span>, <span style="color:#66d9ef">nil</span>
+}
+
+<span style="color:#f92672">......</span>
+
+<span style="color:#75715e">// OrderServiceServer is the server API for OrderService service.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">OrderServiceServer</span> <span style="color:#66d9ef">interface</span> {
+	<span style="color:#a6e22e">GetOrderList</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">OrderListReq</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">OrderListResp</span>, <span style="color:#66d9ef">error</span>)
+	<span style="color:#a6e22e">mustEmbedUnimplementedOrderServiceServer</span>()
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">RegisterOrderServiceServer</span>(<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">grpc</span>.<span style="color:#a6e22e">ServiceRegistrar</span>, <span style="color:#a6e22e">srv</span> <span style="color:#a6e22e">OrderServiceServer</span>) {
+	<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">RegisterService</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">OrderService_ServiceDesc</span>, <span style="color:#a6e22e">srv</span>)
+}
+</code></pre></div><h3 id="总结">
+  总结
+  <a class="anchor" href="#%e6%80%bb%e7%bb%93">#</a>
+</h3>
+<p>这篇主要介绍了<code>pb</code>一些基础的知识，包括定义<code>message</code>、<code>service</code>以及通过<code>protoc-gen-go</code>生成对应的<code>Go</code>代码，<code>gRPC</code>代码。关于 <code>protoc</code>命令，后面有必要再单独写一篇文章。</p>
+<p>下一篇，通过生成的<code>Go</code>代码，完成<code>gRPC</code>通信，然后正式步入主题。</p>
+<h3 id="参考">
+  参考
+  <a class="anchor" href="#%e5%8f%82%e8%80%83">#</a>
+</h3>
+<ul>
+<li><a href="https://grpc.io/docs/languages/go/quickstart/">https://grpc.io/docs/languages/go/quickstart/</a></li>
+<li><a href="https://developers.google.com/protocol-buffers">https://developers.google.com/protocol-buffers</a></li>
+<li><a href="https://colobu.com/2019/10/03/protobuf-ultimate-tutorial-in-go/#option">https://colobu.com/2019/10/03/protobuf-ultimate-tutorial-in-go/#option</a></li>
+<li><a href="https://chai2010.cn/advanced-go-programming-book/ch4-rpc/ch4-02-pb-intro.html">https://chai2010.cn/advanced-go-programming-book/ch4-rpc/ch4-02-pb-intro.html</a></li>
+</ul>
 </article>
  
       
@@ -453,7 +719,19 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#protobuf-是什么">Protobuf 是什么</a></li>
+        <li><a href="#环境">环境</a></li>
+        <li><a href="#如何使用">如何使用</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
  

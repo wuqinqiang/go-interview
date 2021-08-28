@@ -69,7 +69,9 @@ gRPC基于 HTTP/2协议传输。而HTTP/2相比HTTP1.x:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://go.aabbccm.com/docs/main/protobuf/</guid>
-      <description>初始gRPC #  </description>
+      <description>初始protobuf #  Protobuf 是什么 #  protobuf全称是protocal buffers ，平时我们都会简称为pb，下文就使用pb来介绍了。
+官网中对pb的完整定义如下:
+ Protocol buffers are Google&amp;rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.</description>
     </item>
     
     <item>
